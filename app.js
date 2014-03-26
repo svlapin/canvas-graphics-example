@@ -21,17 +21,20 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 function init() {
   var canvas = document.getElementById('canvas');
+  var hint = document.getElementById('hint');
 
   window.rect = new Rectangle(canvas);
 
-  document.getElementById('btn-start').addEventListener('click', function(){
+  document.getElementById('btn-start-stop').addEventListener('click', function(){
     if(!rect.timerID) {
       rect.start();
+      hint.textContent = "Use arrow keys to change horizontal and vertical speed";
       this.textContent = 'Stop animating';
     }
     else {
       rect.stop();
       this.textContent = 'Start animating';
+      hint.textContent = "Click \"Start animating\" button";
     }
   }, false);
 }
